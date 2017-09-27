@@ -1,27 +1,24 @@
 <template>
   <div>
+    <div class="body">
+      <div v-if="bottomNav === 'first_page'">
+        <FirstPage></FirstPage>
+      </div>
 
-    <div v-if="bottomNav === 'first_page'">
-      <FirstPage></FirstPage>
+      <div v-if="bottomNav === 'random'">
+        <FirstPage></FirstPage>
+      </div>
+
+      <div v-if="bottomNav === 'new'">
+        <NewPage></NewPage>
+      </div>
+
+      <div v-if="bottomNav === 'setting'">
+        <Setting></Setting>
+      </div>
     </div>
 
-    <div v-if="bottomNav === 'random'">
-      <FirstPage></FirstPage>
-    </div>
 
-    <div v-if="bottomNav === 'new'">
-
-
-
-
-
-
-      <NewPage></NewPage>
-    </div>
-
-    <div v-if="bottomNav === 'setting'">
-      <Setting></Setting>
-    </div>
 
     <mu-paper class="footer">
       <mu-bottom-nav :value="bottomNav" shift @change="handleChange">
@@ -85,7 +82,9 @@
 <style>
 
 
-
+  .body{
+    padding-bottom: 50px;
+  }
 
 
   .footer{

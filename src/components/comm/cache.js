@@ -24,6 +24,7 @@ const FAVORITE_MAX_LEN = 200
 
 //历史
 export function saveHistory(sentence) {
+  console.log('save his')
   let sentences = storage.get(History_KEY, [])
   // let sentences = []
   let data = {'id':sentence['_id'],'sentence':sentence['jp']}
@@ -37,6 +38,23 @@ export function loadHistory() {
 
 export function clearHistory() {
   return storage.set(History_KEY, [])
+}
+
+
+// 喜欢
+export function saveFavorite(sentence) {
+  let sentences = storage.get(FAVORITE_KEY, [])
+  let data = {'id':sentence['_id'],'sentence':sentence['jp']}
+  sentences.unshift(data)
+  storage.set(FAVORITE_KEY, sentences)
+}
+
+export function loadFavorite() {
+  return storage.get(FAVORITE_KEY, [])
+}
+
+export function clearFavorite() {
+  return storage.set(FAVORITE_KEY, [])
 }
 
 

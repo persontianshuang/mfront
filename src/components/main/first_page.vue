@@ -14,13 +14,16 @@
     <div>
       <mu-tabs :value="activeTab" @change="handleTabChange">
         <mu-tab value="history" title="历史"/>
+        <mu-tab value="love" title="收藏"/>
         <mu-tab value="tab2" title="继续斩"/>
         <mu-tab value="tab3"  title="能力考"/>
         <!--@active="handleActive"-->
       </mu-tabs>
       <div v-if="activeTab === 'history'">
-        <!--:to="{ name: 'music_dtails', params: { id: item.id }}"-->
-        <mu-flat-button label="清除缓存" @click="clear" primary/>
+
+
+        <!--历史记录-->
+        <mu-flat-button label="清除缓存" @click="history_clear" primary/>
 
         <mu-list v-for="(item,index) in history_list">
           <mu-list-item :to="{ name: 'id_sentence', params: { id: item.id }}"
@@ -31,6 +34,24 @@
 
 
       </div>
+
+      <div v-if="activeTab === 'love'">
+
+
+        <!--历史记录-->
+        <mu-flat-button label="清除缓存" @click="love_clear" primary/>
+
+        <mu-list v-for="(item,index) in love_list">
+          <mu-list-item :to="{ name: 'id_sentence', params: { id: item.id }}"
+                        :title="item.sentence">
+          </mu-list-item>
+          <mu-divider inset/>
+        </mu-list>
+
+
+      </div>
+
+
       <div v-if="activeTab === 'tab2'">
         <Tab2></Tab2>
 
@@ -50,7 +71,8 @@
   import {mapGetters, mapMutations} from 'vuex'
   import { mapActions } from 'vuex'
 
-  import { loadNxChoose,saveHistory,loadHistory,clearHistory } from '../comm/cache'
+  import { loadNxChoose,saveHistory,loadHistory,clearHistory,
+    loadFavorite,clearFavorite } from '../comm/cache'
 //  import VideoDtails from '../vedio/vedioList.vue'
   import Tab2 from './first_page/tab2.vue'
   import Tab3 from './first_page/tab3.vue'
@@ -59,8 +81,8 @@
     data () {
       return {
         activeTab: 'tab2',
-        tell_you: '谢谢你如此温柔',
         history_list: [],
+        love_list: [],
       }
     },
 
@@ -71,14 +93,17 @@
 
     beforeMount () {
       this.history_list = loadHistory()
-
-
+      this.love_list = loadFavorite()
 
     },
 
     methods: {
-      clear() {
+      history_clear() {
         clearHistory()
+      },
+
+      love_clear() {
+        clearFavorite()
       },
 
 //      app tabs

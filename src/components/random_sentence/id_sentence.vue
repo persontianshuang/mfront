@@ -14,18 +14,18 @@
 
 
 
-        <video ref="video"
-               :src=idSentence.split_mp4_url
-               controls
-               autoPlay
-               width="100%"
+        <!--<video ref="video"-->
+               <!--:src=idSentence.split_mp4_url-->
+               <!--controls-->
+               <!--autoPlay-->
+               <!--width="100%"-->
 
-        ></video>
+        <!--&gt;</video>-->
 
       <div>
         <mu-slider v-model="vedio_voice"
                    @change="speed"
-                   :step="0.05" :max="1" :min="0.3" class="v_slider"/>
+                   :step="0.05" :max="1" :min="0.25" class="v_slider"/>
         <span style="float: right">语速</span>
       </div>
 
@@ -34,11 +34,15 @@
 
 
 
-      <mu-bottom-nav class="random_footer">
+      <mu-bottom-nav class="random_footer" >
         <!--iconClass-->
-        <mu-bottom-nav-item class="color" value="recents" title="斩0" icon="flight takeoff"/>
-        <mu-bottom-nav-item class="color" value="favorites" title="收藏" icon="favorite"/>
-        <mu-bottom-nav-item class="color" value="nearby" :title=" '讨论'+ commentsList.length " icon="label"
+        <!--<mu-bottom-nav-item class="color" title="斩0" icon="flight takeoff"/>-->
+
+
+        <mu-flat-button label="收藏" color="white" @click="love"/>
+
+
+        <mu-bottom-nav-item class="color" :title=" '讨论'+ commentsList.length " icon="label"
                             :to="{ name: 'comments', params: { id: idSentence._id }}"
 
         />
@@ -57,14 +61,14 @@
 
   import Nx from '../comm/nx'
   import PreNext from '../comm/pre_next'
-  import { loadNxChoose,saveHistory,loadHistory } from '../comm/cache'
+  import { loadNxChoose,saveHistory,loadHistory,saveFavorite } from '../comm/cache'
   import storage from 'good-storage'
 
   export default {
     data () {
       return {
 
-        vedio_voice: 0.6,
+        vedio_voice: 0.5,
       }
     },
 
@@ -117,6 +121,11 @@
       },
 
 
+      love() {
+        saveFavorite(this.idSentence)
+      },
+
+
       ...mapMutations({
 //        setCurrentIndex: 'SET_CURRENT_INDEX',
       }),
@@ -162,8 +171,9 @@
 
   .random_footer{
     padding-top: 10px;
-    background-color: #d7dde4;
-    width:100%}
+    background-color: #555555;
+    width:100%
+  }
 
   .cnjp {
     padding: 10px;
