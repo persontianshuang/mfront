@@ -3,7 +3,7 @@
 
     <mu-card>
       <a @click="to_sentence(item)">
-        <mu-card-media :title=item.name :style="bg()"
+        <mu-card-media :title=item.name :style="bg(item.img)"
                        class="card_img"
                        @click="to_sentence(item)">
         </mu-card-media >

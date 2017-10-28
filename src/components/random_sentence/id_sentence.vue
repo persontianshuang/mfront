@@ -14,13 +14,13 @@
 
 
 
-        <!--<video ref="video"-->
-               <!--:src=idSentence.split_mp4_url-->
-               <!--controls-->
-               <!--autoPlay-->
-               <!--width="100%"-->
+        <video ref="video"
+               :src=idSentence.split_mp4_url
+               controls
+               autoPlay
+               width="100%"
 
-        <!--&gt;</video>-->
+        ></video>
 
       <div>
         <mu-slider v-model="vedio_voice"
