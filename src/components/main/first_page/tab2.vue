@@ -1,11 +1,21 @@
 <template>
   <div>
-      <span v-for="(item,index) in vediolist">
-        <!--@click="to_sentence(item)"-->
-        <Icard :item=item></Icard>
+    <div class="demo-grid">
+      <mu-row gutter>
+        <mu-col v-for="(item,index) in vediolist" width="50" tablet="50" desktop="33">
+
+            <Icard :item=item></Icard>
+        </mu-col>
+      </mu-row>
+    </div>
 
 
-    </span>
+
+
+
+
+
+
   </div>
 </template>
 
@@ -66,7 +76,14 @@
 <style>
 
 
-
+  .demo-grid div[class*="col-"] {
+    background: #fff;
+    text-align: center;
+    color: #000;
+    border: 1px solid #ddd;
+    padding: 8px;
+    margin-bottom: 8px;
+  }
 
 </style>
 

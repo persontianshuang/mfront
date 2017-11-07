@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Sentence from './sentence'
+// import Sentence from './sentence'
+import Main from './main'
 
 Vue.use(Router)
 
@@ -9,9 +10,9 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/sentence/10'
+      redirect: '/main'
     },
-    ...Sentence,
+    ...Main,
   ]
 })
 
