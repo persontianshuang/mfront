@@ -109,7 +109,6 @@
 //      app tabs
       handleTabChange (val) {
         this.activeTab = val
-      },
       handleActive () {
         window.alert('tab active')
       },

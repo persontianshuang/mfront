@@ -23,13 +23,6 @@
         </mu-list-item>
 
 
-
-      <!-- <mu-list-item title="彻底搞定动词时态">
-        <mu-switch label="基本型" v-model="toggle" class="demo-switch" /><br/>
-        <mu-switch label="未然行" v-model="toggle" class="demo-switch" /><br/>
-        <mu-switch label="连用形" v-model="toggle" class="demo-switch" /><br/>
-      </mu-list-item> -->
-
       </mu-list>
     </mu-paper>
 

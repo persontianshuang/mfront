@@ -83,10 +83,10 @@
 
 <style>
 
-  .padcard{
-    padding-bottom: 18px;
+  /*.padcard{*/
+    /*padding-bottom: 18px;*/
 
-  }
+  /*}*/
 
   .card_img{
     height: 250px;

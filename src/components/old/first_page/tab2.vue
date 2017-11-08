@@ -10,12 +10,6 @@
     </div>
 
 
-
-
-
-
-
-
   </div>
 </template>
 
@@ -77,12 +71,7 @@
 
 
   .demo-grid div[class*="col-"] {
-    background: #fff;
-    text-align: center;
-    color: #000;
-    border: 1px solid #ddd;
-    padding: 8px;
-    margin-bottom: 8px;
+
   }
 
 </style>

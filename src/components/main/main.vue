@@ -1,20 +1,20 @@
 <template>
   <div>
     <div class="body">
-      <div v-if="bottomNav === 'first_page'">
-        <FirstPage></FirstPage>
+      <div v-if="bottomNav === 'page1'">
+        <Page1></Page1>
       </div>
 
-      <div v-if="bottomNav === 'random'">
-        <FirstPage></FirstPage>
+      <div v-if="bottomNav === 'page2'">
+        <Page2></Page2>
       </div>
 
-      <div v-if="bottomNav === 'new'">
-        <NewPage></NewPage>
+      <div v-if="bottomNav === 'page3'">
+        page3
       </div>
 
-      <div v-if="bottomNav === 'setting'">
-        <Setting></Setting>
+      <div v-if="bottomNav === 'page4'">
+        <Page4></Page4>
       </div>
     </div>
 
@@ -22,12 +22,10 @@
 
     <mu-paper class="footer">
       <mu-bottom-nav :value="bottomNav" shift @change="handleChange">
-        <mu-bottom-nav-item value="first_page" title="斩" icon="ondemand_video"/>
-        <mu-bottom-nav-item value="random" title="随机" icon="search"
-                            to="/random"
-        />
-        <mu-bottom-nav-item value="new" title="斩什么" icon="add"/>
-        <mu-bottom-nav-item value="setting" title="设置" icon="edit"/>
+        <mu-bottom-nav-item value="page1" title="私人" icon="ondemand_video"/>
+        <mu-bottom-nav-item value="page2" title="流" icon="search"/>
+        <mu-bottom-nav-item value="page3" title="待" icon="add"/>
+        <mu-bottom-nav-item value="page4" title="设置" icon="edit"/>
       </mu-bottom-nav>
     </mu-paper>
 
@@ -39,9 +37,10 @@
 
 <script type="text/ecmascript-6">
   import {mapGetters, mapMutations} from 'vuex'
-  import FirstPage from '../main/first_page'
-  import NewPage from '../main/new_page'
-  import Setting from '../settings/setting'
+  import Page1 from '../main/page1/index'
+  import Page2 from '../main/page2/index'
+  import Page4 from '../main/page4/index'
+
 
   export default {
     data () {
@@ -49,16 +48,16 @@
         open: false,
         docked: true,
 
-        bottomNav: 'first_page',
+        bottomNav: 'page2',
         bottomNavColor: 'movies',
 
       }
     },
 
     components: {
-      FirstPage,
-      NewPage,
-      Setting
+      Page1,
+      Page2,
+      Page4
     },
 
     methods: {
