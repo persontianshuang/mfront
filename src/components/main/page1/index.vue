@@ -36,10 +36,7 @@
   import { mapActions } from 'vuex'
 
   import Tab2 from './tab2/index'
-  那昨天战况如何啊，看你买书，是不是昨天手速慢了些啊
 
-  那试试所有的书都在京东自营买，
-  或者所有的书都在一个店铺买，应该就可以享受满减
   export default {
     data () {
       return {
@@ -52,8 +49,7 @@
     },
 
     beforeMount () {
-不要太气了，哈哈，你看天气今天都这么好。
-那你发个你想买的书的清单，我看看怎么弄
+
     },
 
     methods: {
@@ -74,6 +70,5 @@
 </script>
 
 <style>
-就在淘宝上找到2个，没有试，那天你说你再找找啊
-用nginx端口转发吗，那要个域名指向啊
+
 </style>

@@ -1,7 +1,7 @@
 
 
 // ssh flask
-export const root_url = 'http://123.206.220.149:8768'
+export const root_url = 'http://123.206.220.149:8768/'
 
 
 // django

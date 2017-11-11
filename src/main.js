@@ -5,20 +5,19 @@ import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import axios from 'axios'
 
-import MuseUI from 'muse-ui'
-import 'muse-ui/dist/muse-ui.css'
-// import 'muse-ui/dist/theme-default.css' // 使用 default 主题
-import 'muse-ui/dist/theme-carbon.css'  // 使用 灰色主题
-
 import App from './App'
 import router from './router'
 import store from './store'
+
+import Vuetify from 'vuetify'
+
+import('@/common/css/vuetify.css')
 
 
 Vue.use(Vuex)
 Vue.use(axios)
 Vue.use(VueRouter)
-Vue.use(MuseUI)
+Vue.use(Vuetify)
 
 Vue.config.productionTip = false
 

@@ -1,103 +1,68 @@
 <template>
-  <div>
-    <div class="body">
-      <div v-if="bottomNav === 'page1'">
-        <Page1></Page1>
-      </div>
+  <v-app id="inspire">
+    <v-navigation-drawer
+      persistent
+      clipped
+      app
+      v-model="drawer"
+    >
+      <main_toolbar></main_toolbar>
+    </v-navigation-drawer>
 
-      <div v-if="bottomNav === 'page2'">
-        <Page2></Page2>
-      </div>
-
-      <div v-if="bottomNav === 'page3'">
-        page3
-      </div>
-
-      <div v-if="bottomNav === 'page4'">
-        <Page4></Page4>
-      </div>
-    </div>
-
-
-
-    <mu-paper class="footer">
-      <mu-bottom-nav :value="bottomNav" shift @change="handleChange">
-        <mu-bottom-nav-item value="page1" title="私人" icon="ondemand_video"/>
-        <mu-bottom-nav-item value="page2" title="流" icon="search"/>
-        <mu-bottom-nav-item value="page3" title="待" icon="add"/>
-        <mu-bottom-nav-item value="page4" title="设置" icon="edit"/>
-      </mu-bottom-nav>
-    </mu-paper>
+    <v-toolbar
+      color="deep-purple darken-1"
+      dark
+      app
+      clipped-left
+      fixed
+    >
+      <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
+        <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+        初~ja
+      </v-toolbar-title>
 
 
+      <v-btn icon large>
+        <v-avatar size="32px" tile>
+          <img
+            src="https://vuetifyjs.com/static/doc-images/logo.svg"
+            alt="Vuetify"
+          >
+        </v-avatar>
+      </v-btn>
+    </v-toolbar>
 
-  </div>
+
+    <main_content></main_content>
+
+    <v-footer color="deep-purple darken-1" class="white--text" app>
+      <span>初~ja</span>
+      <v-spacer></v-spacer>
+      <span>&copy; 2017</span>
+    </v-footer>
+
+
+
+
+  </v-app>
 </template>
 
-
-<script type="text/ecmascript-6">
-  import {mapGetters, mapMutations} from 'vuex'
-  import Page1 from '../main/page1/index'
-  import Page2 from '../main/page2/index'
-  import Page4 from '../main/page4/index'
-
+<script>
+  import Content from './content/index'
+  import Toolbar from './toolbar/index'
 
   export default {
-    data () {
-      return {
-        open: false,
-        docked: true,
-
-        bottomNav: 'page1',
-        bottomNavColor: 'movies',
-
-      }
-    },
-忧伤，5块又是一本书
-  阿加莎的《死亡约会》，里面也是波洛神探 应该挺不错的
-  是啊，非常划算，而且快，我昨天晚上买的书，现在都就已经到了
-  不是昨天电影结束，波洛去尼罗河了嘛，我就把后续故事的《尼罗河惨案》买了
-  好美
-  也就买了刚好到200满减
     components: {
-      Page1,
-      Page2,
-      Page4
+      'main_content': Content,
+      'main_toolbar': Toolbar,
     },
 
-    methods: {
-      toggle (flag) {
-        this.open = !this.open
-        this.docked = !flag
-      },
+    data: () => ({
+      drawer: false,
 
-      handleChange (val) {
-        this.bottomNav = val
-      },
+    }),
 
 
 
-    }
   }
 </script>
-
-
-
-<style>
-
-
-  .body{
-    padding-bottom: 50px;
-  }
-
-
-  .footer{
-    padding: 0;
-    position:fixed;
-    background-color: #7e57c2;
-    bottom:0;
-    width:100%;
-
-  }
-
-</style>
