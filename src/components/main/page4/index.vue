@@ -1,7 +1,9 @@
 <template>
   <div>
+    <MyBar></MyBar>
+
     <mu-list>
-      <mu-list-item disabled title="梦有寒桑" describeText="N1 60%"/>
+      <mu-list-item disabled :title="user_name" describeText="N1 60%"/>
     </mu-list>
     <mu-divider />
     <mu-list>
@@ -27,21 +29,7 @@
 
       </mu-list-item>
 
-      <mu-list-item title="动词" toggleNested open=false>
 
-        <mu-list-item title="动词" slot="nested">
-          <mu-switch v-model="messages" slot="right"/>
-        </mu-list-item>
-        <mu-list-item title="形容词" slot="nested">
-          <mu-switch v-model="messages" slot="right"/>
-        </mu-list-item>
-        <mu-list-item title="名词" slot="nested">
-          <mu-switch v-model="messages" slot="right"/>
-        </mu-list-item>
-
-        </mu-list-item>
-
-      </mu-list-item>
 
       <mu-list-item disableRipple @click="handleToggle('events')" title="夜间模式">
         <mu-switch v-model="events"  slot="right"/>
@@ -79,10 +67,13 @@
 </template>
 
 <script>
+  import MyBar from '../mybar'
 
   export default {
     data () {
       return {
+        user_name: 'you get your ',
+
         events: false,
         calls: false,
         messages: false,
@@ -97,7 +88,7 @@
       }
     },
     components: {
-
+      MyBar,
     }
   }
 </script>
